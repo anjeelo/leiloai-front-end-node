@@ -34,7 +34,12 @@ export default function Register() {
       await register(name, email, password);
       navigate('/auctions');
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Erro ao registrar');
+      console.error('Erro no registro:', err);
+      const errorMessage = err.response?.data?.message ||
+                          err.response?.data?.error ||
+                          err.message ||
+                          'Erro ao registrar. Tente novamente.';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

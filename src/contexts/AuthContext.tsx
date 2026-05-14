@@ -56,12 +56,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const register = async (name: string, email: string, password: string) => {
-    const response = await api.post('/auth/register', { name, email, password });
-    const { accessToken, refreshToken } = response.data;
-    localStorage.setItem('accessToken', accessToken);
-    localStorage.setItem('refreshToken', refreshToken);
-    setToken(accessToken);
-    await loadUser();
+    try {
+      const response = await api.post('/auth/register', { name, email, password });
+      const { accessToken, refreshToken } = response.data;
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('refreshToken', refreshToken);
+      setToken(accessToken);
+      await loadUser();
+    } catch (error: any) {
+      console.error('Erro no registro:', error);
+      throw error; // Re-throw para que o componente possa tratar
+    }
   };
 
   const logout = () => {
