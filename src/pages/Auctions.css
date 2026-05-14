@@ -1,0 +1,92 @@
+/* leiloai-frontend/src/pages/Auctions.css */
+.auctions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.status-filter {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.auctions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.auction-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.auction-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%;
+}
+
+.auction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.auction-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.auction-info h3 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.auction-description {
+  color: #666;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.auction-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.auction-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.auction-badge {
+  background-color: #e9ecef;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.auction-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #888;
+  font-size: 12px;
+}
+
+.no-auctions {
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+  margin-top: 50px;
+}
