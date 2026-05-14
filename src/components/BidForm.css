@@ -1,36 +1,98 @@
-/* leiloai — dark neumorphism theme | BidForm.css */
+/* leiloai — premium light theme | BidForm.css */
 
 .bid-form {
-  background: var(--surface);
+  background: var(--navy);
   padding: var(--space-lg);
   border-radius: var(--radius-card);
-  box-shadow: var(--neumo-shadow);
-  border: 1px solid var(--accent-border);
+  border: none;
+  box-shadow: var(--shadow-lg);
   transition: box-shadow var(--transition), transform var(--transition);
 }
 
+.bid-form:hover {
+  box-shadow: var(--shadow-xl);
+}
+
 .bid-form h3 {
-  margin-bottom: var(--space-md);
-  font-size: 20px;
+  margin-bottom: var(--space-xs);
+  font-size: 1.25rem;
   font-family: var(--font-serif);
-  color: var(--accent-primary);
-  font-weight: 600;
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.bid-form .bid-form-subtitle {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: var(--space-lg);
+}
+
+/* Input inside dark form — override base styles */
+.bid-form input,
+.bid-form select {
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  color: #FFFFFF;
+  border-radius: var(--radius-input);
+}
+
+.bid-form input::placeholder { color: rgba(255,255,255,0.35); }
+
+.bid-form label { color: rgba(255,255,255,0.75); }
+
+.bid-form input:focus,
+.bid-form select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(197,160,89,0.20);
+  background: rgba(255,255,255,0.11);
+  outline: none;
 }
 
 .bid-form .form-group { margin-bottom: var(--space-md); }
 
+/* CTA button */
 .bid-form .btn {
   width: 100%;
   height: var(--btn-height);
-  background: var(--accent-primary);
-  color: #0A0A0A;
+  background: var(--gold);
+  color: #FFFFFF;
   text-transform: uppercase;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
   border-radius: var(--btn-radius);
-  box-shadow: var(--neumo-shadow);
-  border: 1px solid var(--border-active);
-  transition: transform var(--transition), box-shadow var(--transition);
+  border: none;
+  box-shadow: 0 4px 16px rgba(197,160,89,0.35);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  min-height: 52px;
 }
 
-.bid-form .btn:active { box-shadow: var(--neumo-inset); transform: scale(0.99); }
+.bid-form .btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(197,160,89,0.45);
+}
+
+.bid-form .btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(197,160,89,0.25);
+}
+
+.bid-form .btn:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+/* Security note */
+.bid-form-note {
+  margin-top: var(--space-sm);
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}

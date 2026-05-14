@@ -1,44 +1,139 @@
-/* leiloai — dark neumorphism theme | Auth.css */
+/* leiloai — premium light theme | Auth.css */
 
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 71px);   /* 71 = navbar height + border */
   padding: var(--space-lg);
-  background: var(--nav-bg);
+  background: var(--bg-main);
+
+  /* Subtle dot pattern background */
+  background-image: radial-gradient(circle, #D8D4CC 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
+/* ── Card ── */
 .auth-card {
-  background: var(--form-bg);
+  background: var(--surface);
   padding: var(--space-2xl);
   border-radius: var(--radius-card);
-  box-shadow: var(--neumo-shadow);
-  border: 1px solid var(--accent-border);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-default);
   width: 100%;
-  max-width: 450px;
-  animation: slideUp 200ms var(--transition) both;
+  max-width: 440px;
+  animation: fadeUp 220ms ease-out both;
+  position: relative;
 }
 
-@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+/* Gold top accent bar */
+.auth-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-radius: 0 0 4px 4px;
+}
 
-.auth-card h2 {
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Brand mark inside card */
+.auth-brand {
   text-align: center;
   margin-bottom: var(--space-lg);
-  color: var(--text-strong);
-  font-size: 26px;
   font-family: var(--font-serif);
+  font-size: 1.75rem;
   font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.06em;
 }
 
-.auth-card .form-group { margin-bottom: var(--space-lg); }
+.auth-brand span { color: var(--gold); }
 
-.btn-block { width: 100%; margin-top: var(--space-lg); }
+/* ── Heading ── */
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 0.375rem;
+  color: var(--navy);
+  font-size: 1.5rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.2;
+}
 
-.auth-link { text-align: center; margin-top: var(--space-lg); font-size: 14px; color: var(--text-muted); }
+.auth-card .auth-description {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-xl);
+}
 
-.auth-link a { color: var(--accent-primary); text-decoration: none; font-weight: 600; transition: color var(--transition); }
+/* ── Divider ── */
+.auth-card .form-divider {
+  height: 1px;
+  background: var(--border-default);
+  margin-bottom: var(--space-xl);
+}
 
-.auth-link a:hover { color: var(--accent-secondary); text-decoration: underline; }
+/* ── Fields ── */
+.auth-card .form-group { margin-bottom: var(--space-md); }
+
+/* ── Submit ── */
+.btn-block {
+  width: 100%;
+  margin-top: var(--space-lg);
+  height: var(--btn-height);
+  min-height: 52px;
+}
+
+/* Primary inside auth card */
+.auth-card .btn-primary {
+  background: var(--navy);
+  color: #FFFFFF;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.auth-card .btn-primary:hover {
+  background: var(--navy-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Switch link ── */
+.auth-link {
+  text-align: center;
+  margin-top: var(--space-lg);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.auth-link a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.auth-link a:hover { color: var(--navy); text-decoration: underline; }
 
 .auth-link a:focus-visible { outline: var(--focus-outline); outline-offset: 3px; }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: var(--space-xl) var(--space-lg);
+    border-radius: var(--radius-input);
+  }
+}
