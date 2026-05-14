@@ -1,89 +1,56 @@
-/* leiloai-frontend/src/pages/CreateAuction.css */
+/* leiloai — dark neumorphism theme | CreateAuction.css */
 
 .create-auction-card {
-  background: var(--color-surface);
+  background: var(--form-bg);
   padding: var(--space-2xl);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--neumo-shadow);
+  border: 1px solid var(--accent-border);
   max-width: 700px;
   margin: 0 auto var(--space-2xl);
-  animation: slideUp 0.3s ease-out;
+  animation: slideUp 200ms var(--transition) both;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 .create-auction-card h2 {
   text-align: center;
   margin-bottom: var(--space-2xl);
-  color: var(--color-text-primary);
-  font-size: 28px;
+  color: var(--text-strong);
+  font-family: var(--font-serif);
+  font-size: 26px;
   font-weight: 700;
 }
 
-.create-auction-card .form-group {
-  margin-bottom: var(--space-lg);
-}
+.create-auction-card .form-group { margin-bottom: var(--space-lg); }
 
-.create-auction-card label {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-sm);
-  display: block;
-}
+.create-auction-card label { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm); display: block; }
 
-.create-auction-card input,
-.create-auction-card textarea,
-.create-auction-card select {
-  transition: all var(--transition-base);
-}
+.create-auction-card input, .create-auction-card textarea, .create-auction-card select { transition: box-shadow var(--transition), border-color var(--transition); }
 
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-lg);
-}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg); }
 
-.form-row .form-group {
-  margin-bottom: 0;
-}
+.form-row .form-group { margin-bottom: 0; }
 
-textarea {
-  resize: vertical;
-  font-family: var(--font-family);
-  min-height: 120px;
-}
+textarea { resize: vertical; font-family: var(--font-sans); min-height: 120px; }
 
-.create-auction-card .btn {
+.create-auction-card .btn-primary {
   width: 100%;
-  padding: var(--space-md) var(--space-lg);
+  height: var(--btn-height);
+  padding: 0 var(--space-lg);
   margin-top: var(--space-lg);
   font-size: 16px;
+  background: var(--accent-primary);
+  color: #0A0A0A;
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+  font-weight: 700;
+  box-shadow: var(--neumo-shadow);
+  border: 1px solid var(--border-active);
 }
 
 @media (max-width: 600px) {
-  .create-auction-card {
-    padding: var(--space-lg);
-  }
-
-  .create-auction-card h2 {
-    font-size: 24px;
-    margin-bottom: var(--space-lg);
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
+  .create-auction-card { padding: var(--space-lg); }
+  .create-auction-card h2 { font-size: 24px; margin-bottom: var(--space-lg); }
+  .form-row { grid-template-columns: 1fr; gap: var(--space-md); }
 }
