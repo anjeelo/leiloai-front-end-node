@@ -1,15 +1,24 @@
 /* leiloai-frontend/src/components/Navbar.css */
 
+/* BRUTALIST DESIGN SYSTEM: Hard edges, no gradients, intentional aesthetics */
+:root {
+  --nav-accent: #d97706;        /* Warm amber — unexpected, not corporate blue */
+  --nav-bg: #1a1a1a;            /* Truly dark — almost black */
+  --nav-border: 2px solid;      /* Thick, hard borders */
+  --nav-active-bg: var(--nav-accent);
+  --nav-active-text: #1a1a1a;
+}
+
 .navbar {
-  background: linear-gradient(135deg, #1e293b 0%, #2c3e50 100%);
-  color: var(--color-text-inverse);
-  padding: var(--space-md) 0;
-  box-shadow: var(--shadow-lg);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--nav-bg);
+  color: #ffffff;
+  padding: 0;
+  border-bottom: var(--nav-border) #333333;
+  border-top: var(--nav-border) #000000;
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: all var(--transition-base);
+  box-shadow: none;
 }
 
 .navbar-container {
@@ -20,88 +29,141 @@
   justify-content: space-between;
   align-items: center;
   height: 70px;
+  border-right: var(--nav-border) #333333;
+  border-left: var(--nav-border) #333333;
 }
 
 .navbar-brand {
-  color: var(--color-text-inverse);
+  color: #ffffff;
   text-decoration: none;
   font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  transition: all var(--transition-base);
+  font-weight: 900;
+  letter-spacing: 0;
+  transition: none;
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  border: var(--nav-border) #ffffff;
+  padding: var(--space-sm) var(--space-md);
+  margin-right: var(--space-lg);
 }
 
 .navbar-brand:hover {
-  transform: translateY(-1px);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: none;
+  text-shadow: none;
+  background-color: #ffffff;
+  color: var(--nav-bg);
+  transition: all 50ms linear;
 }
 
 .navbar-links {
   display: flex;
-  align-items: center;
-  gap: var(--space-lg);
+  align-items: stretch;
+  gap: 0;
+  flex: 1;
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: all var(--transition-base);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  transition: none;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: 0;
   position: relative;
+  border: var(--nav-border) transparent;
+  border-right: var(--nav-border) #333333;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
+/* Hover: thick border appears, no background */
 .nav-link:hover {
-  color: var(--color-text-inverse);
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-1px);
+  color: #ffffff;
+  background-color: transparent;
+  transform: none;
+  border: var(--nav-border) #666666;
+  border-right: var(--nav-border) #333333;
+  transition: none;
+}
+
+/* Active state: FULL COLOR INVERSION */
+.nav-link.active {
+  background-color: var(--nav-active-bg);
+  color: var(--nav-active-text);
+  border: var(--nav-border) var(--nav-active-bg);
+  border-right: var(--nav-border) #333333;
+  font-weight: 900;
+  transition: none;
+}
+
+.nav-link.active:hover {
+  background-color: var(--nav-active-bg);
+  border: var(--nav-border) #000000;
 }
 
 .nav-link:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: var(--space-md);
-  right: var(--space-md);
-  height: 2px;
-  background-color: var(--color-primary);
-  transform: scaleX(0);
-  transition: transform var(--transition-base);
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
+  outline: 3px solid #ffff00;
+  outline-offset: -3px;
+  background-color: rgba(255, 255, 0, 0.1);
 }
 
 .navbar-user {
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  border-left: var(--nav-border) #333333;
+  padding-left: var(--space-lg);
+  margin-left: var(--space-lg);
 }
 
 .user-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
+/* Buttons in navbar: inherit brutalism */
 .btn-sm {
   padding: var(--space-xs) var(--space-md) !important;
-  font-size: 14px !important;
-  transition: all var(--transition-base);
+  font-size: 12px !important;
+  transition: none;
+  border-radius: 0 !important;
+  border: var(--nav-border) #ffffff !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-family: 'Courier New', monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.btn-sm:hover:not(:disabled) {
+  background-color: #ffffff !important;
+  color: var(--nav-bg) !important;
+  transform: none !important;
+  box-shadow: none !important;
+  transition: none;
+}
+
+.btn-sm:active:not(:disabled) {
+  background-color: var(--nav-accent) !important;
+  color: var(--nav-active-text) !important;
+  border-color: var(--nav-accent) !important;
 }
 
 .btn-sm:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+  outline: 3px solid #ffff00;
+  outline-offset: -3px;
 }
