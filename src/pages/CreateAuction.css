@@ -1,32 +1,89 @@
 /* leiloai-frontend/src/pages/CreateAuction.css */
+
 .create-auction-card {
-  background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  max-width: 600px;
-  margin: 0 auto;
+  background: var(--color-surface);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  max-width: 700px;
+  margin: 0 auto var(--space-2xl);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .create-auction-card h2 {
   text-align: center;
-  margin-bottom: 30px;
-  color: #2c3e50;
+  margin-bottom: var(--space-2xl);
+  color: var(--color-text-primary);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.create-auction-card .form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.create-auction-card label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.create-auction-card input,
+.create-auction-card textarea,
+.create-auction-card select {
+  transition: all var(--transition-base);
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.form-row .form-group {
+  margin-bottom: 0;
 }
 
 textarea {
   resize: vertical;
-  font-family: inherit;
+  font-family: var(--font-family);
+  min-height: 120px;
+}
+
+.create-auction-card .btn {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  margin-top: var(--space-lg);
+  font-size: 16px;
 }
 
 @media (max-width: 600px) {
+  .create-auction-card {
+    padding: var(--space-lg);
+  }
+
+  .create-auction-card h2 {
+    font-size: 24px;
+    margin-bottom: var(--space-lg);
+  }
+
   .form-row {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
   }
 }

@@ -1,43 +1,74 @@
 /* leiloai-frontend/src/pages/Auth.css */
+
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 70px);
-  padding: 20px;
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
 }
 
 .auth-card {
-  background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: var(--color-surface);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .auth-card h2 {
   text-align: center;
-  margin-bottom: 30px;
-  color: #2c3e50;
+  margin-bottom: var(--space-xl);
+  color: var(--color-text-primary);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.auth-card .form-group {
+  margin-bottom: var(--space-lg);
 }
 
 .btn-block {
   width: 100%;
-  margin-top: 20px;
+  margin-top: var(--space-lg);
 }
 
 .auth-link {
   text-align: center;
-  margin-top: 20px;
+  margin-top: var(--space-lg);
   font-size: 14px;
+  color: var(--color-text-secondary);
 }
 
 .auth-link a {
-  color: #007bff;
+  color: var(--color-primary);
   text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-base);
 }
 
 .auth-link a:hover {
+  color: var(--color-primary-light);
   text-decoration: underline;
+}
+
+.auth-link a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-md);
 }

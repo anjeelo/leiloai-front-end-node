@@ -1,55 +1,107 @@
 /* leiloai-frontend/src/components/Navbar.css */
+
 .navbar {
-  background-color: #2c3e50;
-  color: white;
-  padding: 15px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #1e293b 0%, #2c3e50 100%);
+  color: var(--color-text-inverse);
+  padding: var(--space-md) 0;
+  box-shadow: var(--shadow-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all var(--transition-base);
 }
 
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--space-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 70px;
 }
 
 .navbar-brand {
-  color: white;
+  color: var(--color-text-inverse);
   text-decoration: none;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.navbar-brand:hover {
+  transform: translateY(-1px);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: var(--space-lg);
 }
 
 .nav-link {
-  color: white;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all var(--transition-base);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  position: relative;
 }
 
 .nav-link:hover {
-  color: #3498db;
+  color: var(--color-text-inverse);
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: var(--space-md);
+  right: var(--space-md);
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
 }
 
 .navbar-user {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--space-md);
 }
 
 .user-name {
   font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .btn-sm {
-  padding: 5px 15px;
-  font-size: 14px;
+  padding: var(--space-xs) var(--space-md) !important;
+  font-size: 14px !important;
+  transition: all var(--transition-base);
+}
+
+.btn-sm:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
